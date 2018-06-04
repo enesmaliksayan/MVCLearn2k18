@@ -1,0 +1,28 @@
+﻿@model MVCLearn2k18.ViewModels.RandomMovieViewModel
+@{
+    ViewBag.Title = "Random";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*
+    This is a comment
+    on multiple lines!
+*@
+
+@{ 
+    var className = Model.Customers.Count > 5 ? "popular" : null;
+}
+
+<h2 class="@className">@Model.Movie.Name</h2>
+
+@if (Model.Customers.Count == 0)
+{
+    <p>No one has rented this movie before.</p>
+}
+else
+{
+    foreach (var c in Model.Customers)
+    {
+        <h1>@c.Name</h1>
+    }
+}
+

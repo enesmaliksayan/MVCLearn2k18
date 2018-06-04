@@ -1,0 +1,20 @@
+﻿@model MVCLearn2k18.ViewModels.RandomMovieViewModel
+@{
+    ViewBag.Title = "Customers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Customers</h2>
+@if (Model.Customers.Count == 0)
+{
+    <p>We don't have any customers yet</p>
+}
+else
+{
+    <ul>
+        @foreach(var c in Model.Customers)
+        {
+        <li> @Html.ActionLink(c.Name,"Detail",new { id=c.Id })</li>
+        }
+    </ul>
+}
